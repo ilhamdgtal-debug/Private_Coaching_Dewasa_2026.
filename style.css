@@ -21,16 +21,14 @@ body {
 /* HERO */
 .hero {
   text-align: center;
-  background: rgba(0,110,255,0.1);
   padding: 25px 15px;
-  border-radius: 12px;
-  margin-bottom: 20px;
 }
 .hero h1 {
   font-family: 'Playfair Display', serif;
   font-size: 1.8rem;
   color: #0047b3;
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
 .early-bird {
   font-weight: bold;
@@ -61,29 +59,61 @@ body {
   box-shadow: 0 0 12px rgba(0,115,255,0.6);
 }
 
-/* CARD SECTIONS */
-.card {
-  background: rgba(0,110,255,0.08);
-  border: 1.5px solid rgba(0,110,255,0.25);
-  border-radius: 12px;
+/* FLOW */
+.flow {
+  position: relative;
+  margin: 40px 0;
+}
+.flow-item {
+  width: 80%;
   padding: 20px;
-  margin-bottom: 20px;
-  transition: 0.3s;
+  margin-bottom: 40px;
+  background: rgba(0,110,255,0.08);
+  border-radius: 12px;
+  position: relative;
 }
-.card:hover {
-  background: rgba(0,110,255,0.15);
-  border-color: rgba(0,140,255,0.4);
-}
-.card h2 {
+.flow-item.left { margin-left: 0; }
+.flow-item.right { margin-left: auto; text-align: right; }
+
+.flow-item h2 {
   font-family: 'Montserrat', sans-serif;
   color: #0047b3;
   margin-bottom: 12px;
 }
-ul {
-  margin-left: 20px;
+.flow-item ul {
+  list-style: none;
+  padding-left: 0;
 }
-li {
+.flow-item li {
   margin-bottom: 8px;
+}
+
+/* ARROW */
+.arrow {
+  width: 100%;
+  height: 40px;
+  position: relative;
+}
+.arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 4px;
+  background-color: #0074ff;
+  transform: translate(-50%, -50%);
+}
+.arrow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 28px);
+  width: 12px;
+  height: 12px;
+  border-top: 4px solid #0074ff;
+  border-right: 4px solid #0074ff;
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 /* CTA */
@@ -97,16 +127,10 @@ li {
   color: #0074ff;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 15px;
-  font-size: 0.9rem;
-  color: #555;
+/* RESPONSIVE */
+@media(max-width:768px){
+  .flow-item.right { text-align: left; margin-left: 0; }
+  .arrow { height: 30px; }
+  .arrow::after { width: 40px; }
 }
 
-/* RESPONSIVE */
-@media(min-width:768px){
-  .hero h1 { font-size: 2.2rem; }
-  .card h2 { font-size: 1.6rem; }
-}
